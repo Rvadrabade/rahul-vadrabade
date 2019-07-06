@@ -1,0 +1,126 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>1. Sphinx &#8212; Programing and CFD</title>
+    <link rel="stylesheet" href="../_static/haiku.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/contentui.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../_static/contentui.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="2. OpenFOAM" href="OpenFOAM.html" />
+    <link rel="prev" title="Welcome to Documentation" href="../index.html" /> 
+  </head><body>
+      <div class="header" role="banner"><h1 class="heading"><a href="../index.html">
+          <span>Programing and CFD</span></a></h1>
+        <h2 class="heading"><span>1. Sphinx</span></h2>
+      </div>
+      <div class="topnav" role="navigation" aria-label="top navigation">
+      
+        <p>
+        «&#160;&#160;<a href="../index.html">Welcome to Documentation</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="../index.html">Contents</a>
+        &#160;&#160;::&#160;&#160;
+        <a href="OpenFOAM.html">2. OpenFOAM</a>&#160;&#160;»
+        </p>
+
+      </div>
+      <div class="content" role="main">
+        
+        
+  <div class="section" id="sphinx">
+<h1>1. Sphinx<a class="headerlink" href="#sphinx" title="Permalink to this headline">¶</a></h1>
+<p>Sphinx is a tool that makes it easy to create intelligent and beautiful documentation using <strong>reStructuredText</strong> .</p>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#sphinx-resources" id="id2">Sphinx Resources</a></p></li>
+<li><p><a class="reference internal" href="#installation" id="id3">Installation</a></p></li>
+<li><p><a class="reference internal" href="#getting-started" id="id4">Getting Started</a></p></li>
+<li><p><a class="reference internal" href="#html-output" id="id5">HTML Output</a></p></li>
+<li><p><a class="reference internal" href="#theme" id="id6">Theme</a></p></li>
+</ul>
+</div>
+<div class="section" id="sphinx-resources">
+<h2><a class="toc-backref" href="#id2">1.1. Sphinx Resources</a><a class="headerlink" href="#sphinx-resources" title="Permalink to this headline">¶</a></h2>
+<p>Resources to Learn Sphinx.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="http://www.sphinx-doc.org/en/master/">Sphinx</a></p></li>
+<li><p><a class="reference external" href="https://docs.readthedocs.io/en/stable/intro/getting-started-with-sphinx.html">Read the Docs - Getting started with Sphinx</a></p></li>
+<li><p><a class="reference external" href="https://runawayhorse001.github.io/SphinxGithub/index.html">Sphinx with github webpage</a></p></li>
+<li><p>Youtube</p></li>
+</ul>
+</div>
+<div class="section" id="installation">
+<h2><a class="toc-backref" href="#id3">1.2. Installation</a><a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<p>Ubuntu/Linux</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>apt-get install python3-sphinx
+</pre></div>
+</div>
+<p>To get latest version, it is advisable to use python virtual environment as follows</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt install -y python3-venv
+<span class="nb">cd</span> ~
+mkdir Virt_Env
+<span class="nb">cd</span> Virt_Env/
+python3 -m venv sphinx
+<span class="nb">source</span> sphinx/bin/activate
+pip install -U sphinx
+sudo gedit <span class="nb">alias</span> <span class="nv">VSphinx</span><span class="o">=</span><span class="s1">&#39;source ~/Virt_Env/sphinx/bin/activate&#39;</span>
+//set <span class="nb">alias</span> <span class="p">&amp;</span> from next <span class="nb">time</span> use <span class="s1">&#39;VSphinx&#39;</span> to activate virtual environment- <span class="s1">&#39;deactivate&#39;</span> to exit.//
+deactivate
+</pre></div>
+</div>
+</div>
+<div class="section" id="getting-started">
+<h2><a class="toc-backref" href="#id4">1.3. Getting Started</a><a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sphinx-quickstart
+</pre></div>
+</div>
+<p>Just answer to  project name and author, keep rest to default or unanswered.</p>
+</div>
+<div class="section" id="html-output">
+<h2><a class="toc-backref" href="#id5">1.4. HTML Output</a><a class="headerlink" href="#html-output" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make html
+</pre></div>
+</div>
+<p>Open “_build/html/index.html” in chrome or firefox to view output.</p>
+</div>
+<div class="section" id="theme">
+<h2><a class="toc-backref" href="#id6">1.5. Theme</a><a class="headerlink" href="#theme" title="Permalink to this headline">¶</a></h2>
+<p>Detailed Information is available <a class="reference external" href="https://www.sphinx-doc.org/en/stable/theming.html">here</a></p>
+<p>To change default theme, edit <strong>conf.py</strong> and change to different available theme.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">html_theme</span> <span class="o">=</span> <span class="s1">&#39;alabaster&#39;</span> <span class="c1"># classic/sphinxdoc/scrolls/agogo</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+      </div>
+      <div class="bottomnav" role="navigation" aria-label="bottom navigation">
+      
+        <p>
+        «&#160;&#160;<a href="../index.html">Welcome to Documentation</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="../index.html">Contents</a>
+        &#160;&#160;::&#160;&#160;
+        <a href="OpenFOAM.html">2. OpenFOAM</a>&#160;&#160;»
+        </p>
+
+      </div>
+
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2019, Rahul Vadrabade.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.1.2.
+    </div>
+  </body>
+</html>

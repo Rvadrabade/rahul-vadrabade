@@ -1,0 +1,225 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>2.2.1.2. Test cases &#8212; Programing and CFD</title>
+    <link rel="stylesheet" href="../_static/haiku.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/contentui.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../_static/contentui.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="2.2.2.1. NonLinearAdvectionDiffusionFoam" href="NonLinearAdvectionDiffusionFoam.html" />
+    <link rel="prev" title="2.2.1.1. LinearAdvectionDiffusionFoam" href="LinearAdvectionDiffusionFoam.html" /> 
+  </head><body>
+      <div class="header" role="banner"><h1 class="heading"><a href="../index.html">
+          <span>Programing and CFD</span></a></h1>
+        <h2 class="heading"><span>2.2.1.2. Test cases</span></h2>
+      </div>
+      <div class="topnav" role="navigation" aria-label="top navigation">
+      
+        <p>
+        «&#160;&#160;<a href="LinearAdvectionDiffusionFoam.html">2.2.1.1. LinearAdvectionDiffusionFoam</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="../index.html">Contents</a>
+        &#160;&#160;::&#160;&#160;
+        <a href="NonLinearAdvectionDiffusionFoam.html">2.2.2.1. NonLinearAdvectionDiffusionFoam</a>&#160;&#160;»
+        </p>
+
+      </div>
+      <div class="content" role="main">
+        
+        
+  <div class="section" id="test-cases">
+<h1>2.2.1.2. Test cases<a class="headerlink" href="#test-cases" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference external" href="https://github.com/Rvadrabade/OpenFOAM-Programing/tree/master/LinearAdvectionDiffusionFoam_cases">Test cases</a></p>
+<div class="section" id="various-cases">
+<h2>2.2.1.2.1. Various cases<a class="headerlink" href="#various-cases" title="Permalink to this headline">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Case</p></th>
+<th class="head"><p>Dimensions &amp; tmax=0.5 s</p></th>
+<th class="head"><p>Domain (in m)</p></th>
+<th class="head"><p>Constant value</p></th>
+<th class="head"><p>IC (t=0)</p></th>
+<th class="head"><p>BC</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="#case-1"><span class="std std-ref">Case 1</span></a></p></td>
+<td><p>1D</p></td>
+<td><p><span class="math notranslate nohighlight">\(0 \leq x \leq 2\)</span></p></td>
+<td><p>Advection <strong>c = (0.5 0 0)</strong> <span class="math notranslate nohighlight">\(m/s\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(u =\begin{cases}2 &amp; 0.5 \leq x \leq 1\\1 &amp; else \end{cases}\)</span></p></td>
+<td><p>Periodic</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#case-2"><span class="std std-ref">Case 2</span></a></p></td>
+<td><p>1D</p></td>
+<td><p><span class="math notranslate nohighlight">\(0 \leq x \leq 2\)</span></p></td>
+<td><p>Diffusion <strong>nu = 0.1</strong> in <span class="math notranslate nohighlight">\(m^2/s\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(u =\begin{cases}2 &amp; 0.5 \leq x \leq 1\\1 &amp; else \end{cases}\)</span></p></td>
+<td><p>Periodic</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#case-3"><span class="std std-ref">Case 3</span></a></p></td>
+<td><p>2D</p></td>
+<td><p><span class="math notranslate nohighlight">\(0 \leq x \leq 2\)</span></p>
+<p><span class="math notranslate nohighlight">\(0 \leq y \leq 2\)</span></p>
+</td>
+<td><p>Advection <strong>c = (0.5 0 0)</strong> <span class="math notranslate nohighlight">\(m/s\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(u,v =\begin{cases}2 &amp; 0.5 \leq x,y \leq 1\\1 &amp; else \end{cases}\)</span></p></td>
+<td><p>Periodic</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#case-4"><span class="std std-ref">Case 4</span></a></p></td>
+<td><p>2D</p></td>
+<td><p><span class="math notranslate nohighlight">\(0 \leq x \leq 2\)</span></p>
+<p><span class="math notranslate nohighlight">\(0 \leq y \leq 2\)</span></p>
+</td>
+<td><p>Diffusion <strong>nu = 0.1</strong> in <span class="math notranslate nohighlight">\(m^2/s\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(u,v =\begin{cases}2 &amp; 0.5 \leq x,y \leq 1\\1 &amp; else \end{cases}\)</span></p></td>
+<td><p>Periodic</p></td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="case-1">
+<span id="id2"></span><h3>2.2.1.2.1.1. Case 1<a class="headerlink" href="#case-1" title="Permalink to this headline">¶</a></h3>
+<p>Scheme: Gauss upwind</p>
+<table class="docutils align-center">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>1.0</p></th>
+<th class="head"><p>1.1</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><div class="figure align-default">
+<a class="reference internal image-reference" href="../_images/T10.png"><img alt="../_images/T10.png" src="../_images/T10.png" style="width: 320px;" /></a>
+</div>
+</td>
+<td><div class="figure align-default">
+<a class="reference internal image-reference" href="../_images/T11.png"><img alt="../_images/T11.png" src="../_images/T11.png" style="width: 320px;" /></a>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="case-2">
+<span id="id3"></span><h3>2.2.1.2.1.2. Case 2<a class="headerlink" href="#case-2" title="Permalink to this headline">¶</a></h3>
+<p>Scheme: Gauss linear orthogonal</p>
+<table class="docutils align-center">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>2.0</p></th>
+<th class="head"><p>2.1</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><div class="figure align-default">
+<a class="reference internal image-reference" href="../_images/T20.png"><img alt="../_images/T20.png" src="../_images/T20.png" style="width: 320px;" /></a>
+</div>
+</td>
+<td><div class="figure align-default">
+<a class="reference internal image-reference" href="../_images/T21.png"><img alt="../_images/T21.png" src="../_images/T21.png" style="width: 320px;" /></a>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="case-3">
+<span id="id4"></span><h3>2.2.1.2.1.3. Case 3<a class="headerlink" href="#case-3" title="Permalink to this headline">¶</a></h3>
+<p>Scheme: Gauss upwind</p>
+<table class="docutils align-center">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>3.0 (50*50)</p></th>
+<th class="head"><p>3.1 (200*200)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><div class="figure align-default">
+<a class="reference internal image-reference" href="../_images/T30.png"><img alt="../_images/T30.png" src="../_images/T30.png" style="width: 480px;" /></a>
+</div>
+</td>
+<td><div class="figure align-default">
+<a class="reference internal image-reference" href="../_images/T31.png"><img alt="../_images/T31.png" src="../_images/T31.png" style="width: 480px;" /></a>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="case-4">
+<span id="id5"></span><h3>2.2.1.2.1.4. Case 4<a class="headerlink" href="#case-4" title="Permalink to this headline">¶</a></h3>
+<p>Scheme: Gauss linear orthogonal</p>
+<table class="docutils align-center">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>4.0 (20*20)</p></th>
+<th class="head"><p>4.1 (80*80)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><div class="figure align-default">
+<a class="reference internal image-reference" href="../_images/T40.png"><img alt="../_images/T40.png" src="../_images/T40.png" style="width: 480px;" /></a>
+</div>
+</td>
+<td><div class="figure align-default">
+<a class="reference internal image-reference" href="../_images/T41.png"><img alt="../_images/T41.png" src="../_images/T41.png" style="width: 480px;" /></a>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+
+      </div>
+      <div class="bottomnav" role="navigation" aria-label="bottom navigation">
+      
+        <p>
+        «&#160;&#160;<a href="LinearAdvectionDiffusionFoam.html">2.2.1.1. LinearAdvectionDiffusionFoam</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="../index.html">Contents</a>
+        &#160;&#160;::&#160;&#160;
+        <a href="NonLinearAdvectionDiffusionFoam.html">2.2.2.1. NonLinearAdvectionDiffusionFoam</a>&#160;&#160;»
+        </p>
+
+      </div>
+
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2019, Rahul Vadrabade.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.1.2.
+    </div>
+  </body>
+</html>

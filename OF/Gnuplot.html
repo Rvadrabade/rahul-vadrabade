@@ -1,0 +1,664 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" /><script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-143421214-1']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+    <title>1. Gnuplot &#8212; Programing and CFD</title>
+    <link rel="stylesheet" href="../_static/haiku.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/contentui.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../_static/contentui.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="2.2.2.2. Test cases" href="Validation_nLAD.html" /> 
+  </head><body>
+      <div class="header" role="banner"><h1 class="heading"><a href="../index.html">
+          <span>Programing and CFD</span></a></h1>
+        <h2 class="heading"><span>1. Gnuplot</span></h2>
+      </div>
+      <div class="topnav" role="navigation" aria-label="top navigation">
+      
+        <p>
+        «&#160;&#160;<a href="Validation_nLAD.html">2.2.2.2. Test cases</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="../index.html">Contents</a>
+        </p>
+
+      </div>
+      <div class="content" role="main">
+        
+        
+  <div class="section" id="gnuplot">
+<h1>1. Gnuplot<a class="headerlink" href="#gnuplot" title="Permalink to this headline">¶</a></h1>
+<p><strong>Gnuplot</strong> is a command-line program that can generate two- and three-dimensional <strong>plots of functions, data</strong> .</p>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#installation" id="id2">Installation</a></p></li>
+<li><p><a class="reference internal" href="#resources" id="id3">Resources</a></p></li>
+<li><p><a class="reference internal" href="#getting-started" id="id4">Getting Started:</a></p></li>
+<li><p><a class="reference internal" href="#some-basics" id="id5">Some basics:</a></p></li>
+<li><p><a class="reference internal" href="#dat-files" id="id6">DAT files</a></p>
+<ul>
+<li><p><a class="reference internal" href="#basics" id="id7">Basics</a></p></li>
+<li><p><a class="reference internal" href="#advanced" id="id8">Advanced</a></p></li>
+<li><p><a class="reference internal" href="#script" id="id9">Script</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#csv-files" id="id10">CSV files</a></p></li>
+<li><p><a class="reference internal" href="#ternary-operator-and-loop" id="id11">Ternary operator and LOOP</a></p>
+<ul>
+<li><p><a class="reference internal" href="#ternary-operator" id="id12">Ternary operator</a></p></li>
+<li><p><a class="reference internal" href="#loop" id="id13">LOOP</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#d-surfaces" id="id14">3D surfaces</a></p></li>
+<li><p><a class="reference internal" href="#table-mode" id="id15">Table mode</a></p></li>
+<li><p><a class="reference internal" href="#vector-plot" id="id16">Vector plot</a></p></li>
+<li><p><a class="reference internal" href="#paramatric-equations" id="id17">Paramatric Equations</a></p></li>
+</ul>
+</div>
+<div class="section" id="installation">
+<h2><a class="toc-backref" href="#id2">1.1. Installation</a><a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<p>Windows OS: Available on SourceForge.net</p>
+<p>Ubuntu/Linux OS:</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt-get install gnuplot
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="resources">
+<h2><a class="toc-backref" href="#id3">1.2. Resources</a><a class="headerlink" href="#resources" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="http://www.gnuplot.info/">Gnuplot</a></p>
+<p><a class="reference external" href="http://gnuplot.sourceforge.net/demo_5.2/">Scripts and Demo</a></p>
+</div>
+<div class="section" id="getting-started">
+<h2><a class="toc-backref" href="#id4">1.3. Getting Started:</a><a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h2>
+<p>For this demonstration <strong>Ubuntu</strong> platform is used.</p>
+<p>There are two ways to work a) Writing every command on interface b) Using <cite>scripts</cite>. Second option is preferred which save time.</p>
+</div>
+<div class="section" id="some-basics">
+<h2><a class="toc-backref" href="#id5">1.4. Some basics:</a><a class="headerlink" href="#some-basics" title="Permalink to this headline">¶</a></h2>
+<p>On terminal write <code class="docutils literal notranslate"><span class="pre">gnuplot</span></code> and hit enter for gnuplot interface. With the following commands try to reproduce the same output.</p>
+<table class="docutils">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><div class="highlight-gnuplot notranslate"><div class="highlight"><pre><span></span><span class="k">set</span> <span class="nb">title</span> <span class="s">&quot;Single plot sin(x)&quot;</span>
+<span class="k">plot</span> <span class="nf">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="../_images/plot-6fd2969c4d78f123840c8d88033dd53d83b6f74c.png" src="../_images/plot-6fd2969c4d78f123840c8d88033dd53d83b6f74c.png" />
+</td>
+<td><div class="highlight-gnuplot notranslate"><div class="highlight"><pre><span></span><span class="k">set</span> <span class="nb">title</span> <span class="s">&quot;multi-plot sin(x),cos(x),2*x &quot;</span>
+<span class="k">plot</span> <span class="nf">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">,</span><span class="nf">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">,</span><span class="mi">2</span><span class="o">*</span><span class="n">x</span>
+</pre></div>
+</div>
+<img alt="../_images/plot-55a0778dacfeb3912d4881e024ec4424e188cd3c.png" src="../_images/plot-55a0778dacfeb3912d4881e024ec4424e188cd3c.png" />
+</td>
+<td><div class="highlight-gnuplot notranslate"><div class="highlight"><pre><span></span><span class="k">set</span> <span class="nb">title</span> <span class="s">&quot;Adjust x and y ranges&quot;</span>
+<span class="c">#[:] auto ranges , [p:q] from p to q</span>
+<span class="c">#[p:]  from p to auto set , [:q] from auto to q</span>
+<span class="k">set</span> <span class="nb">xrange</span><span class="p">[</span><span class="o">-</span><span class="n">pi</span><span class="o">:</span><span class="n">pi</span><span class="p">]</span>
+<span class="k">set</span> <span class="nb">yrange</span><span class="p">[</span><span class="mi">-2</span><span class="o">:</span><span class="mi">2</span><span class="p">]</span>
+<span class="k">plot</span> <span class="nf">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">,</span><span class="nf">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">,</span><span class="mi">2</span><span class="o">*</span><span class="n">x</span>
+</pre></div>
+</div>
+<img alt="../_images/plot-c79696bdfb7fa227f3e7359c518706d99e352142.png" src="../_images/plot-c79696bdfb7fa227f3e7359c518706d99e352142.png" />
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="dat-files">
+<h2><a class="toc-backref" href="#id6">1.5. DAT files</a><a class="headerlink" href="#dat-files" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="basics">
+<h3><a class="toc-backref" href="#id7">1.5.1. Basics</a><a class="headerlink" href="#basics" title="Permalink to this headline">¶</a></h3>
+<p>With the <a class="reference download internal" download="" href="../_downloads/2f84a9ffbc706bd037b59645557ca216/sample.dat"><code class="xref download docutils literal notranslate"><span class="pre">sample.dat</span></code></a>  dat file lets move ahead. Default plotting style is points.
+Gnuplot also supports shorthand notations. It default reads and plot first and second columns. Lines with hash(#) are
+comments for gnuplot.</p>
+<table class="docutils">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><div class="highlight-gnuplot notranslate"><div class="highlight"><pre><span></span><span class="k">set</span> <span class="nb">title</span> <span class="s">&quot;Dat file&quot;</span>
+<span class="c"># assuming file is in</span>
+<span class="c"># current working directory</span>
+<span class="k">plot</span> <span class="s">&#39;sample.dat&#39;</span>
+</pre></div>
+</div>
+<img alt="../_images/plot-614d0eae24abf9f9fbd69038b32c605706c6227e.png" src="../_images/plot-614d0eae24abf9f9fbd69038b32c605706c6227e.png" />
+</td>
+<td><div class="highlight-gnuplot notranslate"><div class="highlight"><pre><span></span><span class="k">set</span> <span class="nb">title</span> <span class="s">&quot;with lines&quot;</span>
+<span class="k">plot</span> <span class="s">&#39;sample.dat with lines title &quot;sample&quot;</span>
+
+<span class="c">#with short hand notations</span>
+<span class="c">#plot &#39;sample.dat&#39; w l t &quot;sample&quot;</span>
+</pre></div>
+</div>
+<img alt="../_images/plot-5d71481a09cfe479ee21648d6acbc34b466a6981.png" src="../_images/plot-5d71481a09cfe479ee21648d6acbc34b466a6981.png" />
+</td>
+<td><div class="highlight-gnuplot notranslate"><div class="highlight"><pre><span></span><span class="k">set</span> <span class="nb">title</span> <span class="s">&quot;with linespoints&quot;</span>
+<span class="k">plot</span> <span class="s">&#39;sample.dat&#39;</span> <span class="nb">with</span> <span class="n">linespoints</span>
+
+<span class="c">#with short hand notations</span>
+<span class="c">#plot &#39;sample.dat&#39; w lp</span>
+</pre></div>
+</div>
+<img alt="../_images/plot-afa1638025ee0ac6a09aabdf4e4ff751d63ddc90.png" src="../_images/plot-afa1638025ee0ac6a09aabdf4e4ff751d63ddc90.png" />
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="advanced">
+<h3><a class="toc-backref" href="#id8">1.5.2. Advanced</a><a class="headerlink" href="#advanced" title="Permalink to this headline">¶</a></h3>
+<p>It supports spread-sheet (excel) like calculations. To access column <code class="docutils literal notranslate"><span class="pre">using</span> <span class="pre">x:y</span></code> format is used.</p>
+<table class="docutils">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><div class="highlight-gnuplot notranslate"><div class="highlight"><pre><span></span><span class="k">set</span> <span class="nb">title</span> <span class="s">&quot;column 1 vs 3&quot;</span>
+<span class="c"># assuming file is in</span>
+<span class="c"># current working directory</span>
+<span class="k">plot</span> <span class="s">&#39;sample.dat&#39;</span> <span class="nb">u</span> <span class="mi">1</span><span class="o">:</span><span class="mi">3</span> <span class="nb">title</span> <span class="s">&quot;1:3&quot;</span> <span class="o">,</span>\
+      <span class="s">&#39;&#39;</span> <span class="nb">u</span> <span class="mi">3</span><span class="o">:</span><span class="mi">1</span> <span class="nb">w</span> <span class="n">l</span> <span class="nb">t</span> <span class="s">&quot;3:1&quot;</span>
+
+<span class="c">#try</span>
+<span class="c">#plot &#39;sample.dat&#39; t &quot;sample.dat&quot; u 1:3</span>
+<span class="c">#plot &#39;sample.dat&#39; t &quot;sample.dat&quot; u 2:3</span>
+<span class="c">#plot &#39;sample.dat&#39; t &quot;sample.dat&quot; u 2:1 w l</span>
+<span class="c">#plot &#39;sample.dat&#39; t &quot;sample.dat&quot; u 3:1 w lp</span>
+</pre></div>
+</div>
+<img alt="../_images/plot-df8414c04bb5381b796fd370dc5e06e6aac1f954.png" src="../_images/plot-df8414c04bb5381b796fd370dc5e06e6aac1f954.png" />
+</td>
+<td><div class="highlight-default notranslate"><div class="highlight"><pre><span></span>set title &quot;some manupulation and variables&quot;
+
+a=5
+
+plot &#39;sample.dat&#39; u ($2*5):3 w l t &quot;($2*5):3&quot;,\
+   &#39;&#39; u ($2*a):3 w p t &quot;($2*a=5):3&quot;
+
+
+# try a=4.5,5.5,10
+# which does not change original data
+# Handy to normalize raw data.
+</pre></div>
+</div>
+<img alt="../_images/plot-0aa0a65160cd2a57b4ce611266935a872b96b8ec.png" src="../_images/plot-0aa0a65160cd2a57b4ce611266935a872b96b8ec.png" />
+</td>
+<td><div class="highlight-default notranslate"><div class="highlight"><pre><span></span>#Both data file and analytical equations
+#can be plotted at smae time.
+
+set title &quot;more manupulation&quot;
+
+plot &#39;sample.dat&#39; u 1:2 w p t &quot;(1:2)&quot;,\
+     &#39;&#39; u 1:($1*5) w p t &quot;(1:$1*5)&quot;
+
+# try
+# plot &#39;sample.dat&#39; u 1:3 w p t &quot;(1:3)&quot;,\
+#    &#39;&#39; u 1:(log($1)) w p t &quot;(1:log($1))&quot;
+</pre></div>
+</div>
+<img alt="../_images/plot-d0333a284fe241a0666bee685bab5cf5d84955cb.png" src="../_images/plot-d0333a284fe241a0666bee685bab5cf5d84955cb.png" />
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="script">
+<h3><a class="toc-backref" href="#id9">1.5.3. Script</a><a class="headerlink" href="#script" title="Permalink to this headline">¶</a></h3>
+<p>Script is required to produce publication quality plots. It is nothing but sequence of commands necessary to get plots.
+Also, it saves time and offers more customization.</p>
+<ul class="simple">
+<li><p>Output terminal - Gnuplot offers several output terminal out of them eps, svg, png, jpeg are used frequently.</p></li>
+<li><p>Output          - Name of output file.</p></li>
+<li><p>Size            - Depending upon the output terminal size can be specified in pixels or in other units or can be specified with output terminal.</p></li>
+<li><p>Title           - Tittle can be set as shown in above examples.</p></li>
+<li><p>xrange,yrange   - Ranges can be specified as <code class="docutils literal notranslate"><span class="pre">[x:y]</span></code> as shown in above examples.</p></li>
+<li><p>xlabel,ylabel   - Is used to show labels on each axes.</p></li>
+</ul>
+<p>These are sufficient properties needs to be specified to get good images.</p>
+<p>Save the following commands in file named <code class="docutils literal notranslate"><span class="pre">png.gp</span></code>. Open new terminal and execute as <code class="docutils literal notranslate"><span class="pre">gnuplot</span> <span class="pre">png.gp</span></code> which produces
+required image.</p>
+<table class="docutils">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><div class="highlight-gnuplot notranslate"><div class="highlight"><pre><span></span><span class="c">#PNG Output, default size 640,480 or</span>
+<span class="c">#&#39;set size 320,240&#39;.</span>
+<span class="k">set</span> <span class="nb">terminal</span> <span class="n">png</span> <span class="n">size</span> <span class="mi">320</span><span class="o">,</span><span class="mi">240</span> <span class="n">enhanced</span>
+<span class="k">set</span> <span class="nb">output</span> <span class="s">&#39;png_image.png&#39;</span>
+
+<span class="c">#unset key #to hide graph title/legend which</span>
+<span class="c">#sometimes intersects with plots.</span>
+<span class="c">#set key position #position = top,bottom,lefttop etc</span>
+<span class="c">#OR</span>
+<span class="c">#set key outside</span>
+
+<span class="k">set</span> <span class="nb">title</span> <span class="s">&quot;png image&quot;</span>
+<span class="k">set</span> <span class="nb">xlabel</span> <span class="s">&quot;x-axis&quot;</span>
+<span class="k">set</span> <span class="nb">ylabel</span> <span class="s">&quot;y-axis&quot;</span>
+
+<span class="k">set</span> <span class="nb">xrange</span> <span class="p">[</span><span class="mi">-3</span><span class="mf">.14</span><span class="o">:</span><span class="mf">3.14</span><span class="p">]</span>
+<span class="k">set</span> <span class="nb">yrange</span> <span class="p">[</span><span class="mi">-1</span><span class="o">:</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="k">plot</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="o">,</span><span class="nf">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><img alt="../_images/plot-abf4816cc56e36e6bb7c59c582c26b28d98c986f.png" src="../_images/plot-abf4816cc56e36e6bb7c59c582c26b28d98c986f.png" />
+</td>
+</tr>
+</tbody>
+</table>
+<table class="docutils">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><div class="highlight-gnuplot notranslate"><div class="highlight"><pre><span></span><span class="c">#PNG Output, default size 640,480 or</span>
+<span class="c">#&#39;set size 320,240&#39;.</span>
+<span class="k">set</span> <span class="nb">terminal</span> <span class="n">png</span> <span class="n">size</span> <span class="mi">320</span><span class="o">,</span><span class="mi">240</span> <span class="n">enhanced</span>
+<span class="k">set</span> <span class="nb">output</span> <span class="s">&#39;png_image.png&#39;</span>
+
+<span class="c">#unset key #to hide graph title/legend which</span>
+<span class="c">#sometimes intersects with plots.</span>
+<span class="c">#set key position #position = top,bottom,lefttop etc</span>
+<span class="c">#OR</span>
+<span class="c">#set key outside</span>
+
+<span class="k">set</span> <span class="nb">title</span> <span class="s">&quot;png image&quot;</span>
+<span class="k">set</span> <span class="nb">xlabel</span> <span class="s">&quot;x-axis&quot;</span>
+<span class="k">set</span> <span class="nb">ylabel</span> <span class="s">&quot;y-axis&quot;</span>
+
+<span class="k">set</span> <span class="nb">xtics</span> <span class="mf">0.5</span>      <span class="c"># for minor tics</span>
+<span class="k">set</span> <span class="nb">ytics</span> <span class="mf">0.25</span>
+
+<span class="k">set</span> <span class="nb">xrange</span> <span class="p">[</span><span class="mi">-3</span><span class="mf">.14</span><span class="o">:</span><span class="mf">3.14</span><span class="p">]</span>
+<span class="k">set</span> <span class="nb">yrange</span> <span class="p">[</span><span class="mi">-1</span><span class="o">:</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="k">plot</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="o">,</span><span class="nf">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">,</span><span class="s">&#39;images/sample.dat&#39;</span> <span class="nb">u</span> <span class="mi">1</span><span class="o">:</span><span class="mi">3</span> <span class="nb">w</span> <span class="n">l</span> <span class="nb">t</span> <span class="s">&quot;datfile&quot;</span>
+</pre></div>
+</div>
+</td>
+<td><img alt="../_images/plot-2f930c4b2fec72b8ad43de507a77605895b3c479.png" src="../_images/plot-2f930c4b2fec72b8ad43de507a77605895b3c479.png" />
+</td>
+</tr>
+</tbody>
+</table>
+<p>For other output terminal only following changes are required.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">+</span> <span class="nb">set</span> <span class="n">terminal</span> <span class="n">jpeg</span> <span class="n">size</span> <span class="mi">320</span><span class="p">,</span><span class="mi">240</span> <span class="n">enhanced</span>
+  <span class="nb">set</span> <span class="n">output</span> <span class="s1">&#39;jpeg_image.jpeg&#39;</span>
+
+<span class="o">+</span> <span class="nb">set</span> <span class="n">terminal</span> <span class="n">svg</span> <span class="n">size</span> <span class="mi">320</span><span class="p">,</span><span class="mi">240</span> <span class="n">enhanced</span>
+  <span class="nb">set</span> <span class="n">output</span> <span class="s1">&#39;svg_image.svg&#39;</span>
+
+<span class="o">+</span> <span class="nb">set</span> <span class="n">terminal</span> <span class="n">postscript</span> <span class="n">eps</span> <span class="n">size</span> <span class="mf">3.5</span><span class="p">,</span><span class="mf">2.62</span> <span class="n">enhanced</span>
+  <span class="nb">set</span> <span class="n">output</span> <span class="s1">&#39;eps_image.eps&#39;</span>
+  <span class="c1">#size in &#39;inches&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="csv-files">
+<h2><a class="toc-backref" href="#id10">1.6. CSV files</a><a class="headerlink" href="#csv-files" title="Permalink to this headline">¶</a></h2>
+<p>CSV files are comma separated files. Paraview exports data in csv format which then can be used to plot using gnuplot.
+For this the ‘data separator’ property need to set. Rest commands remains same. e.g.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">set</span> <span class="n">datafile</span> <span class="n">separator</span> <span class="s2">&quot;,&quot;</span>
+<span class="nb">set</span> <span class="n">title</span> <span class="s2">&quot;eps_image.eps&quot;</span>
+<span class="o">..</span>
+<span class="o">..</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="ternary-operator-and-loop">
+<h2><a class="toc-backref" href="#id11">1.7. Ternary operator and LOOP</a><a class="headerlink" href="#ternary-operator-and-loop" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="ternary-operator">
+<h3><a class="toc-backref" href="#id12">1.7.1. Ternary operator</a><a class="headerlink" href="#ternary-operator" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">a?b:c</span></code> is ternary operator where <code class="docutils literal notranslate"><span class="pre">a</span></code> is condition which if true <code class="docutils literal notranslate"><span class="pre">b</span></code> is considered else <code class="docutils literal notranslate"><span class="pre">c</span></code>.
+If either <code class="docutils literal notranslate"><span class="pre">b</span> <span class="pre">or</span> <span class="pre">c</span></code> turn out to be <code class="docutils literal notranslate"><span class="pre">1/0</span></code> , plotting is skipped as demonstrated below.</p>
+<table class="docutils">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><div class="highlight-gnuplot notranslate"><div class="highlight"><pre><span></span><span class="c">#PNG Output, default size 640,480 or &#39;set size 320,240&#39;.</span>
+<span class="k">set</span> <span class="nb">terminal</span> <span class="n">png</span> <span class="n">enhanced</span>
+<span class="k">set</span> <span class="nb">output</span> <span class="s">&#39;ternary operator.png&#39;</span>
+
+<span class="k">set</span> <span class="nb">title</span> <span class="s">&quot;ternary operator&quot;</span>
+<span class="k">set</span> <span class="nb">xlabel</span> <span class="s">&quot;x-axis&quot;</span>
+<span class="k">set</span> <span class="nb">ylabel</span> <span class="s">&quot;y-axis&quot;</span>
+
+<span class="k">set</span> <span class="nb">xrange</span> <span class="p">[</span><span class="mi">0</span><span class="o">:</span><span class="mi">20</span><span class="p">]</span>
+<span class="k">set</span> <span class="nb">yrange</span> <span class="p">[</span><span class="mi">0</span><span class="o">:</span><span class="mi">50</span><span class="p">]</span>
+
+<span class="k">set</span> <span class="nb">xtics</span> <span class="mi">2</span>
+<span class="k">set</span> <span class="nb">ytics</span> <span class="mi">5</span>
+
+<span class="k">plot</span> <span class="p">(</span><span class="n">x</span><span class="o">&lt;</span><span class="mi">10</span><span class="p">)</span><span class="o">?</span><span class="mi">2</span><span class="o">*</span><span class="n">x</span> <span class="o">:</span> <span class="n">x</span> <span class="nb">w</span> <span class="n">p</span>
+<span class="c">#plot (x&lt;10)?2*x : 1/0 w p</span>
+<span class="c">#try this</span>
+<span class="c">#plot &#39;sample.dat&#39; u 1:( $1&lt;8 ? $2: 1/0) w l t &quot;datfile&quot;</span>
+</pre></div>
+</div>
+</td>
+<td><img alt="../_images/plot-8ab5e031b329ebd65997413427b647971ac22f4a.png" src="../_images/plot-8ab5e031b329ebd65997413427b647971ac22f4a.png" />
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="loop">
+<h3><a class="toc-backref" href="#id13">1.7.2. LOOP</a><a class="headerlink" href="#loop" title="Permalink to this headline">¶</a></h3>
+<p>Sometimes it is required to repeat same sequence again and again and to save time <code class="docutils literal notranslate"><span class="pre">loop</span></code> or <code class="docutils literal notranslate"><span class="pre">iterations</span></code> is used.</p>
+<table class="docutils">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><div class="highlight-gnuplot notranslate"><div class="highlight"><pre><span></span><span class="c">#Reference:- http://gnuplot.sourceforge.net/demo/iterate.html</span>
+
+<span class="k">set</span> <span class="nb">terminal</span> <span class="n">png</span> <span class="n">enhanced</span>
+<span class="k">set</span> <span class="nb">output</span> <span class="s">&#39;png_image.png&#39;</span>
+<span class="k">set</span> <span class="nb">title</span> <span class="s">&quot;Iteration within plot command&quot;</span>
+<span class="k">set</span> <span class="nb">xrange</span> <span class="p">[</span><span class="mi">0</span><span class="o">:</span><span class="mi">3</span><span class="p">]</span>
+<span class="k">set</span> <span class="nb">label</span> <span class="mi">1</span> <span class="s">&quot;plot for [n=2:10] sin(x*n)/n&quot;</span> <span class="n">at</span> <span class="n">graph</span> <span class="mf">.95</span><span class="o">,</span> <span class="n">graph</span> <span class="mf">.92</span> <span class="n">right</span>
+<span class="k">plot</span> <span class="n">for</span> <span class="p">[</span><span class="n">n</span><span class="o">=</span><span class="mi">2</span><span class="o">:</span><span class="mi">10</span><span class="p">]</span> <span class="nf">sin</span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="n">n</span><span class="p">)</span><span class="o">/</span><span class="n">n</span> <span class="nb">notitle</span> <span class="nf">lw</span> <span class="p">(</span><span class="mi">13</span><span class="o">-</span><span class="n">n</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span>
+
+<span class="c">#For time series plot from c/c++ cfd code or from cfd software. For example plot over line</span>
+<span class="c">#for 10 timesteps.</span>
+<span class="c">#Assuming file name is &#39;data_1.dat&#39;,&#39;data_2.dat&#39;..&#39;data_10.dat&#39;.</span>
+
+<span class="c">#plot for [i=1:10] file=sprintf(&quot;data_%d.dat&quot;,i) file u 1:2 t file</span>
+<span class="c">#plot for [i=1:10] file=sprintf(&quot;data_%g.dat&quot;,i*0.5) file u 1:2 t file</span>
+</pre></div>
+</div>
+</td>
+<td><img alt="../_images/plot-a89b5fbc0475f0984dd5910109a79a07bd0138b8.png" src="../_images/plot-a89b5fbc0475f0984dd5910109a79a07bd0138b8.png" />
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="d-surfaces">
+<h2><a class="toc-backref" href="#id14">1.8. 3D surfaces</a><a class="headerlink" href="#d-surfaces" title="Permalink to this headline">¶</a></h2>
+<p>3D plots can be used with <code class="docutils literal notranslate"><span class="pre">splot</span></code> command which means surface plot. This section is reproduce from
+<a class="reference external" href="http://hirophysics.com/gnuplot/gnuplot10.html">Hirophysics</a> and  <a class="reference external" href="http://gnuplot.sourceforge.net/demo_5.0/surface2.html">Gnuplot surface</a></p>
+<table class="docutils">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><div class="highlight-gnuplot notranslate"><div class="highlight"><pre><span></span><span class="k">splot</span> <span class="nf">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">*</span><span class="nf">cos</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="../_images/plot-e0980f3228fcf9c168e24c2ce66b337ea2c7e883.png" src="../_images/plot-e0980f3228fcf9c168e24c2ce66b337ea2c7e883.png" />
+</td>
+<td><div class="highlight-gnuplot notranslate"><div class="highlight"><pre><span></span><span class="k">set</span> <span class="nb">hidden3d</span>
+<span class="k">splot</span> <span class="nf">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">*</span><span class="nf">cos</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="../_images/plot-328f5688064e8bd355fe98fe7c377e9ed3b08c55.png" src="../_images/plot-328f5688064e8bd355fe98fe7c377e9ed3b08c55.png" />
+</td>
+</tr>
+</tbody>
+</table>
+<table class="docutils">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><div class="highlight-gnuplot notranslate"><div class="highlight"><pre><span></span><span class="k">set</span> <span class="nb">isosample</span> <span class="mi">40</span>
+<span class="k">set</span> <span class="nb">hidden3d</span>
+<span class="k">splot</span> <span class="nf">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">*</span><span class="nf">cos</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="../_images/plot-03a8a4036d45d81b75397ec01849ca27700bec7b.png" src="../_images/plot-03a8a4036d45d81b75397ec01849ca27700bec7b.png" />
+</td>
+<td><div class="highlight-gnuplot notranslate"><div class="highlight"><pre><span></span><span class="k">set</span> <span class="nb">isosample</span> <span class="mi">40</span>
+<span class="k">set</span> <span class="nb">hidden3d</span>
+<span class="k">set</span> <span class="nb">pm3d</span>
+<span class="k">splot</span> <span class="p">[</span><span class="mi">0</span><span class="o">:</span><span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="p">]</span> <span class="p">[</span><span class="mi">0</span><span class="o">:</span><span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="p">]</span> <span class="nf">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">*</span><span class="nf">cos</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="../_images/plot-e9acb33ebe33cf2dd5c9773037cef778ebb5e3a0.png" src="../_images/plot-e9acb33ebe33cf2dd5c9773037cef778ebb5e3a0.png" />
+</td>
+</tr>
+</tbody>
+</table>
+<table class="docutils">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><div class="highlight-gnuplot notranslate"><div class="highlight"><pre><span></span><span class="k">set</span> <span class="nb">isosample</span> <span class="mi">40</span>
+<span class="k">set</span> <span class="nb">hidden3d</span>
+<span class="k">set</span> <span class="nb">pm3d</span> <span class="n">at</span> <span class="n">b</span>
+<span class="k">splot</span> <span class="p">[</span><span class="mi">0</span><span class="o">:</span><span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="p">]</span> <span class="p">[</span><span class="mi">0</span><span class="o">:</span><span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="p">]</span> <span class="nf">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">*</span><span class="nf">cos</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="../_images/plot-75bf6dfca0753e3147d37ff3bd829d48504c3d29.png" src="../_images/plot-75bf6dfca0753e3147d37ff3bd829d48504c3d29.png" />
+</td>
+<td><div class="highlight-gnuplot notranslate"><div class="highlight"><pre><span></span><span class="k">set</span> <span class="nb">isosample</span> <span class="mi">40</span>
+<span class="k">set</span> <span class="nb">hidden3d</span>
+<span class="k">set</span> <span class="nb">pm3d</span> <span class="n">at</span> <span class="n">bs</span>
+<span class="k">splot</span> <span class="p">[</span><span class="mi">0</span><span class="o">:</span><span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="p">]</span> <span class="p">[</span><span class="mi">0</span><span class="o">:</span><span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="p">]</span> <span class="nf">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">*</span><span class="nf">cos</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="../_images/plot-6529f72f2ebb432aff5c5d153c764ec8e6fb1490.png" src="../_images/plot-6529f72f2ebb432aff5c5d153c764ec8e6fb1490.png" />
+</td>
+</tr>
+</tbody>
+</table>
+<table class="docutils">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><div class="highlight-gnuplot notranslate"><div class="highlight"><pre><span></span><span class="k">set</span> <span class="nb">isosample</span> <span class="mi">60</span>
+<span class="k">set</span> <span class="nb">pm3d</span> <span class="n">map</span>
+<span class="k">splot</span> <span class="p">[</span><span class="mi">0</span><span class="o">:</span><span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="p">]</span> <span class="p">[</span><span class="mi">0</span><span class="o">:</span><span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="p">]</span> <span class="nf">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">*</span><span class="nf">cos</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="../_images/plot-d4e2218b608ded9845c18898d6027045feeccc95.png" src="../_images/plot-d4e2218b608ded9845c18898d6027045feeccc95.png" />
+</td>
+<td><div class="highlight-gnuplot notranslate"><div class="highlight"><pre><span></span><span class="k">set</span> <span class="nb">isosample</span> <span class="mi">60</span>
+<span class="k">set</span> <span class="nb">contour</span>
+<span class="k">set</span> <span class="nb">cntrparam</span> <span class="n">levels</span> <span class="mi">10</span>
+<span class="c">#set cntrparam #try this</span>
+<span class="k">splot</span> <span class="p">[</span><span class="mi">0</span><span class="o">:</span><span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="p">]</span> <span class="p">[</span><span class="mi">0</span><span class="o">:</span><span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="p">]</span> <span class="nf">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">*</span><span class="nf">cos</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="../_images/plot-73efdc337c74891de3817c04f22907843c4541e2.png" src="../_images/plot-73efdc337c74891de3817c04f22907843c4541e2.png" />
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Surface plot can be obtained with <code class="docutils literal notranslate"><span class="pre">dat</span></code> or <code class="docutils literal notranslate"><span class="pre">csv</span></code> files in same manner.
+It requires trial and error approach to get exact image which may consumes time.
+Hence, it is advised to use another alternative i.e. <code class="docutils literal notranslate"><span class="pre">paraview</span></code> .</p>
+</div>
+</div>
+<div class="section" id="table-mode">
+<h2><a class="toc-backref" href="#id15">1.9. Table mode</a><a class="headerlink" href="#table-mode" title="Permalink to this headline">¶</a></h2>
+<p>Table mode allows to save data points (X Y) for 2d or (X Y Z) for 3d to disk i.e. to file. Output of plot commands between <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">and</span> <span class="pre">unset</span> <span class="pre">table</span></code>
+are directed to file on disk in form of data points.</p>
+<table class="docutils">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><div class="highlight-gnuplot notranslate"><div class="highlight"><pre><span></span><span class="c">#2D</span>
+<span class="k">set</span> <span class="nb">xrange</span> <span class="p">[</span><span class="o">-</span><span class="n">pi</span><span class="o">:</span><span class="n">pi</span><span class="p">]</span>
+<span class="k">set</span> <span class="nb">table</span> <span class="s">&#39;table_2d.dat&#39;</span>
+<span class="k">plot</span> <span class="nf">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="k">unset</span> <span class="nb">table</span>
+
+<span class="k">plot</span> <span class="s">&#39;table_2d.dat&#39;</span> <span class="nb">w</span> <span class="n">l</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-gnuplot notranslate"><div class="highlight"><pre><span></span><span class="c">#3D</span>
+<span class="k">set</span> <span class="nb">xrange</span> <span class="p">[</span><span class="o">-</span><span class="n">pi</span><span class="o">:</span><span class="n">pi</span><span class="p">]</span>
+<span class="k">set</span> <span class="nb">yrange</span> <span class="p">[</span><span class="o">-</span><span class="n">pi</span><span class="o">:</span><span class="n">pi</span><span class="p">]</span>
+<span class="k">set</span> <span class="nb">table</span> <span class="s">&#39;table_3d.dat&#39;</span>
+<span class="k">splot</span> <span class="nf">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">*</span><span class="nf">cos</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<span class="k">unset</span> <span class="nb">table</span>
+
+<span class="k">set</span> <span class="nb">dgrid3d</span>
+<span class="k">set</span> <span class="nb">hidden3d</span>
+<span class="k">set</span> <span class="nb">pm3d</span>
+<span class="k">splot</span> <span class="s">&#39;table_3d.dat&#39;</span> <span class="nb">w</span> <span class="n">l</span>
+</pre></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="vector-plot">
+<h2><a class="toc-backref" href="#id16">1.10. Vector plot</a><a class="headerlink" href="#vector-plot" title="Permalink to this headline">¶</a></h2>
+<p>Vector plot is one of the best feature offered by gnuplot. For this demonstration data exported from paraview for Lid Driven Cavity
+case simulated with OpenFOAM is used. <a class="reference download internal" download="" href="../_downloads/87217c2b973a691850658cf69b241e54/vector.csv"><code class="xref download docutils literal notranslate"><span class="pre">vector.csv</span></code></a></p>
+<table class="docutils">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><div class="highlight-default notranslate"><div class="highlight"><pre><span></span>set terminal png enhanced
+set output &#39;vector.png&#39;
+set title &#39;vector plot&#39;
+
+#As working with csv file.
+set datafile separator &quot;,&quot;
+
+#parameter to adjust vector lengths
+scale=0.01
+
+plot &#39;vector.csv&#39; u 5:6:(scale*$2):(scale*$3) w vectors
+</pre></div>
+</div>
+</td>
+<td><img alt="../_images/plot-033a8b72c5614a972e0b1f3e29cbc9cb4212587c.png" src="../_images/plot-033a8b72c5614a972e0b1f3e29cbc9cb4212587c.png" />
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="paramatric-equations">
+<h2><a class="toc-backref" href="#id17">1.11. Paramatric Equations</a><a class="headerlink" href="#paramatric-equations" title="Permalink to this headline">¶</a></h2>
+<p>One can study parametric equations with this mode.</p>
+<table class="docutils">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><div class="highlight-gnuplot notranslate"><div class="highlight"><pre><span></span><span class="k">set</span> <span class="nb">terminal</span> <span class="n">png</span> <span class="n">enhanced</span>
+<span class="k">set</span> <span class="nb">output</span> <span class="s">&#39;2d parametric.png&#39;</span>
+<span class="k">set</span> <span class="nb">title</span> <span class="s">&#39;2d parametric plot&#39;</span>
+<span class="k">set</span> <span class="nb">parametric</span>
+<span class="k">set</span> <span class="nb">xrange</span> <span class="p">[</span><span class="mi">-5</span><span class="o">:</span><span class="mi">5</span><span class="p">]</span>
+<span class="k">set</span> <span class="nb">yrange</span> <span class="p">[</span><span class="mi">-5</span><span class="o">:</span><span class="mi">5</span><span class="p">]</span>
+<span class="k">set</span> <span class="nb">zeroaxis</span>
+
+<span class="k">plot</span> <span class="n">for</span> <span class="p">[</span><span class="n">n</span><span class="o">=</span><span class="mi">1</span><span class="o">:</span><span class="mi">5</span><span class="p">]</span> <span class="p">[</span><span class="mi">-2</span><span class="o">*</span><span class="n">pi</span><span class="o">:</span><span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="p">]</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">n</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="nf">cos</span><span class="p">(</span><span class="nb">t</span><span class="p">))</span><span class="o">*</span><span class="nf">cos</span><span class="p">(</span><span class="nb">t</span><span class="p">)</span><span class="o">,</span><span class="mf">0.5</span><span class="o">*</span><span class="n">n</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="nf">cos</span><span class="p">(</span><span class="nb">t</span><span class="p">))</span><span class="o">*</span><span class="nf">sin</span><span class="p">(</span><span class="nb">t</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><img alt="../_images/plot-38b9d2aa6fbb1a450e8ce49593d6f2e5d4f216b3.png" src="../_images/plot-38b9d2aa6fbb1a450e8ce49593d6f2e5d4f216b3.png" />
+</td>
+</tr>
+</tbody>
+</table>
+<p>Mobius Surface</p>
+<table class="docutils">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><div class="highlight-gnuplot notranslate"><div class="highlight"><pre><span></span><span class="k">set</span> <span class="nb">terminal</span> <span class="n">png</span> <span class="n">enhanced</span>
+<span class="k">set</span> <span class="nb">output</span> <span class="s">&#39;3d parametric.png&#39;</span>
+<span class="k">set</span> <span class="nb">title</span> <span class="s">&#39;3d parametric plot&#39;</span>
+<span class="k">set</span> <span class="nb">parametric</span>
+<span class="k">set</span> <span class="nb">hidden3d</span>
+
+<span class="k">set</span> <span class="nb">noztics</span>
+<span class="k">set</span> <span class="nb">isosample</span> <span class="mi">50</span><span class="o">,</span><span class="mi">20</span>
+<span class="k">set</span> <span class="nb">view</span> <span class="mi">35</span><span class="o">,</span><span class="mi">0</span>
+<span class="k">splot</span> <span class="p">[</span><span class="mi">0</span><span class="o">:</span><span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="p">][</span><span class="mi">-0</span><span class="mf">.1</span><span class="o">:</span><span class="mf">0.1</span><span class="p">]</span> <span class="nf">cos</span><span class="p">(</span><span class="nb">u</span><span class="p">)</span><span class="o">+</span><span class="n">v</span><span class="o">*</span><span class="nf">cos</span><span class="p">(</span><span class="nb">u</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="nf">cos</span><span class="p">(</span><span class="nb">u</span><span class="p">)</span><span class="o">,</span>\
+           <span class="nf">sin</span><span class="p">(</span><span class="nb">u</span><span class="p">)</span><span class="o">+</span><span class="n">v</span><span class="o">*</span><span class="nf">cos</span><span class="p">(</span><span class="nb">u</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="nf">sin</span><span class="p">(</span><span class="nb">u</span><span class="p">)</span><span class="o">,</span><span class="n">v</span><span class="o">*</span><span class="nf">sin</span><span class="p">(</span><span class="nb">u</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><img alt="../_images/plot-ca49f8723cac931560c7277c55eaf6a5c2895c7a.png" src="../_images/plot-ca49f8723cac931560c7277c55eaf6a5c2895c7a.png" />
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+      </div>
+      <div class="bottomnav" role="navigation" aria-label="bottom navigation">
+      
+        <p>
+        «&#160;&#160;<a href="Validation_nLAD.html">2.2.2.2. Test cases</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="../index.html">Contents</a>
+        </p>
+
+      </div>
+
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2019, Rahul Vadrabade.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.1.2.
+    </div>
+  </body>
+</html>

@@ -21,8 +21,7 @@
 # import sys
 # sys.path.insert(0, os.path.abspath('.'))
 
-#import os,sys
-#sys.path.append(os.path.abspath('../fluiddyn/fluiddoc/'))
+import os,sys
 
 # -- General configuration ------------------------------------------------
 
@@ -33,12 +32,9 @@
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
-extensions = ['sphinx.ext.mathjax','sphinxcontrib.contentui']
-#extensions = ['sphinx.ext.autodoc','sphinx.ext.dcotest',
-#			'sphinx.ext.mathjax',
-#			'sphinx.ext.viewcode','sphinx.ext.autosummary',
-#			'numpydoc',
-#			'fluiddoc.mathmacro']
+extensions = ['sphinx.ext.mathjax','sphinxcontrib.contentui','sphinxcontrib.gnuplot','sphinxcontrib.googleanalytics']
+#extensions = ['sphinx.ext.mathjax','sphinxcontrib.contentui','sphinxcontrib.gnuplot']
+googleanalytics_id = 'UA-143421214-1'
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
